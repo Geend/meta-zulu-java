@@ -27,9 +27,9 @@ S = "${WORKDIR}"
 
 do_install () {
   install -d -m 0755 ${D}${libdir}/jvm
-  cp -a ${S}/${ARCHIVE_NAME}/jre ${D}${libdir}/jvm
+  cp -r ${S}/${ARCHIVE_NAME}/jre ${D}${libdir}/jvm
   install -d -m 0755 ${D}${bindir}
-  lnr ${D}${libdir}/jvm/jre/bin/java ${D}${bindir}/java
+  ln -s -r ${D}${libdir}/jvm/jre/bin/java ${D}${bindir}/java
 }
 
 # All the files are provided in a binaray package, and keeping all the
